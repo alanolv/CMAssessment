@@ -9,7 +9,7 @@ class LoginController extends GetxController{
 
 Future<void> performLoginAction() async {
   if (passwordController.text.isNotEmpty && emailController.text.isNotEmpty) {
-    Get.to(HomeScreen());
+    Get.to(() => const HomeScreen());
   } else {
     showErrorSnackbar(
       'error_login'.tr,

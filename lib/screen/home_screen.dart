@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assesment/widget/character_card.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text('characters'.tr, style: TextStyle(fontSize: 22)),
               ),
+             
             ],
           ),
         ),
