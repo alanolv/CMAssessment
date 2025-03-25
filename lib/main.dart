@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget{
           surfaceTintColor: Colors.transparent),
         useMaterial3: true,
         ),
-        locale: const Locale('es', 'MX'),
+        locale: Get.deviceLocale,
+        fallbackLocale: const Locale('es', 'MX'),
         home: const LoginScreen(),
       );
   }

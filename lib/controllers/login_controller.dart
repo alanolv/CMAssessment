@@ -9,12 +9,11 @@ class LoginController extends GetxController{
 
 Future<void> performLoginAction() async {
   if (passwordController.text.isNotEmpty && emailController.text.isNotEmpty) {
-    print("button tapped");
     Get.to(HomeScreen());
   } else {
     showErrorSnackbar(
-      'Error al iniciar sesión',
-      'Hay campos vacíos. Por favor, llena todos los campos.',
+      'error_login'.tr,
+      'error_empty_fields'.tr,
     );
   }
 }

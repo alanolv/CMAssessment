@@ -56,6 +56,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: [
                         Container(
+                          margin: const EdgeInsets.only(bottom: 20),
+                          child: Text(
+                            'login'.tr,
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Container(
                           margin: const EdgeInsets.only(bottom: 5),
                           child: AppTextFormField(
                             label: 'email'.tr,
