@@ -27,7 +27,13 @@ Assessment para vacante de desarrollador flutter
 - GetX para manejo de estado y navegacion por su sencillez y facilidad de implementación
 - Http para consumo de APi
 
-### Desiciones y 
+### Desiciones durante el desarrollo
+
+Para el desarrollo de esta aplicacion de tuvieron en cuenta sus requerimientos y debido a la naturaleza del proyecto de opto por usar get para la gestion de de estados y la navegacion debido a la sencillez y que permitiria un desarollo mas eficas, tambien se opto por una estetica simple pero apegada a una tematica proviniente de la API, incluyendo colores propios de esta
+
+**Posibles mejoras**
+- Implementacion de autenticacion con firebase para el login: Se manejo una estructura de proyecto que permite una facil implementacion de este metodo de autenticacion mediante controllers
+- Filtros para datos del API: Se estructuro el codigo para futuras actualizaciones como agregar filtros que cambien los datos obtenidos
 
 ## Requisitos previos
 
