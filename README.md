@@ -17,11 +17,11 @@ Assessment para vacante de desarrollador flutter
 
 ## Proceso de desarrrollo 
 ### Creacion de Mock up para el diseño
-![Mock up Login](assets\images\login_mock.jpg "Título opcional")
+![Mock up Login](https://raw.githubusercontent.com/alanolv/CMAssessment/refs/heads/main/assets/images/login_mock.jpg "Título opcional")
 
-![Mock up HomeScreen](assets\images\home_screen_mock.jpg "Título opcional")
+![Mock up HomeScreen](https://raw.githubusercontent.com/alanolv/CMAssessment/refs/heads/main/assets/images/home_screen_mock.jpg "Título opcional")
 
-![Mock up Detail](assets\images\detail_mock.jpg "Título opcional")
+![Mock up Detail](https://raw.githubusercontent.com/alanolv/CMAssessment/refs/heads/main/assets/images/detail_mock.jpg "Título opcional")
 
 ### Elección de librerias para el desarrollo
 - GetX para manejo de estado y navegacion por su sencillez y facilidad de implementación
