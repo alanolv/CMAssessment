@@ -15,6 +15,12 @@ class Messages extends Translations{
       'characters':'Characters',
       'error':'Error',
       'error_fetching_characters':'Error fetching characters',
+      'episodes':'Episodes',
+      'alive_ricks':'Alive Ricks',
+      'alive_mortys':'Alive Mortys',
+      'alive_summers':'Alive Summers',
+      'alive_beths':'Alive Beths',
+      'alive_jerrys':'Alive Jerrys',
     },
     'es_MX':{
       'login':'Iniciar Sesión',
@@ -28,6 +34,12 @@ class Messages extends Translations{
       'characters':'Personajes',
       'error':'Error',
       'error_fetching_characters':'Error al obtener personajes',
+      'episodes':'Episodios',
+      'alive_ricks':'Ricks Vivos',
+      'alive_mortys':'Mortys Vivos',
+      'alive_summers':'Summers Vivas',
+      'alive_beths':'Beths Vivas',
+      'alive_jerrys':'Jerrys Vivos',
     },
   };
 }

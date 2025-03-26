@@ -12,9 +12,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final CharacterController characterController = Get.put(
-    CharacterController(),
-  );
+  final characterController = Get.put(CharacterController());
+  // Lista de tipos de personajes
+  final List<String> characterTypes = [
+    'rick',
+    'morty',
+    'summer',
+    'beth',
+    'jerry',
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Carga los personajes para cada tipo
+    for (var type in characterTypes) {
+      characterController.fetchCharacters(type);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -28,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              // Título de la pantalla
               Container(
                 margin: const EdgeInsets.only(top: 35),
                 alignment: Alignment.center,
@@ -37,50 +55,70 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(fontSize: 26),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(top:  MediaQuery.of(context).size.width * 0.04, bottom: 0),
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.symmetric(horizontal:  MediaQuery.of(context).size.width * 0.05),
-                child: Text('characters'.tr, style: TextStyle(fontSize: 22)),
-              ),
-              Container(
-                margin:  EdgeInsets.only(top: 0, left:  MediaQuery.of(context).size.width * 0.03),
-                height: 400,
-                child: Obx(() {
-                  if (characterController.characters.isEmpty) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else {
-                    return ListView.builder(
-                      itemCount: characterController.characters.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          //onTap: (){
-                          //characterController.getCharacterDetails(characterController.characters[index].id);
-                          //},
-                          child: Container(
-                            margin: EdgeInsets.only(
-                              top: MediaQuery.of(context).size.width * 0.03,
-                            ),
-                            padding: EdgeInsets.symmetric(horizontal:  MediaQuery.of(context).size.width * 0.03),
-                            child: CharacterCard(
-                              onTap:
-                                  () =>
-                                      {}, //characterController.getCharacterDetails(characterController.characters[index].id),
-                              characterId:
-                                  characterController.characters[index].id,
-                              characterName:
-                                  characterController.characters[index].name,
-                              characterImage:
-                                  characterController.characters[index].image,
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  }
-                }),
-              ),
+              // Secciones de personajes
+              ...characterTypes.map((type) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Título de la sección
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.width * 0.04,
+                        bottom: 0,
+                      ),
+                      alignment: Alignment.centerLeft,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.05,
+                      ),
+                      child: Text(
+                        'alive_${type}s'.tr, 
+                        style: const TextStyle(fontSize: 22),
+                      ),
+                    ),
+                    // Sección del personaje
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: 0,
+                        left: MediaQuery.of(context).size.width * 0.02,
+                      ),
+                      height: 400,
+                      child: Obx(() {
+                        //Obtener personaje por tipo
+                        final characters =
+                            characterController.charactersByType[type] ?? [];
+                        if (characters.isEmpty) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          return ListView.builder(
+                            itemCount: characters.length,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                // Tarjeta del personaje
+                                margin: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.width * 0.03,
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.03,
+                                ),
+                                child: CharacterCard(
+                                  onTap:() {Get.to(DetailScreen(nombre:characters[index].id));},
+                                  characterId: characters[index].id,
+                                  characterName: characters[index].name,
+                                  characterImage: characters[index].image,
+                                ),
+                              );
+                            },
+                          );
+                        }
+                      }),
+                    ),
+                  ],
+                );
+              }).toList(),
             ],
           ),
         ),
