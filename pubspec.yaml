@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   #Uso de GetX para la navegación y el manejo de estados
   get: ^4.6.6
+  #Uso de http para las peticiones a la API
+  http: ^0.13.6
 
 dev_dependencies:
   flutter_test:

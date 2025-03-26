@@ -13,6 +13,8 @@ class Messages extends Translations{
       'error_empty_fields':'There are empty fields. Please fill all fields.',
       'home_screen_title':'Interdimensional Rickipedia',
       'characters':'Characters',
+      'error':'Error',
+      'error_fetching_characters':'Error fetching characters',
     },
     'es_MX':{
       'login':'Iniciar Sesión',
@@ -24,6 +26,8 @@ class Messages extends Translations{
       'error_empty_fields':'Hay campos vacíos. Por favor, llena todos los campos.',
       'home_screen_title':'Interdimensional Rickipedia',
       'characters':'Personajes',
+      'error':'Error',
+      'error_fetching_characters':'Error al obtener personajes',
     },
   };
 }
