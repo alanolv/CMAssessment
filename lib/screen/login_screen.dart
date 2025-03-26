@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_assesment/controllers/login_controller.dart';
@@ -13,30 +12,27 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  // Inicializa el controlador de login
   final LoginController loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
         extendBodyBehindAppBar: true,
         extendBody: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: AppBar(backgroundColor: Colors.transparent),
         body: SingleChildScrollView(
           child: Column(
-            children: [ 
+            children: [
               Container(
-                height: 350,
-                decoration:  BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 1,
-                  ),
+                height: MediaQuery.of(context).size.height * 0.40,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 1),
+                  // Establece el radio de las esquinas en la imagen
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(175),
                     bottomRight: Radius.circular(175),
@@ -46,17 +42,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     image: AssetImage('assets/images/rick_and_mory_cover.jpg'),
                   ),
                 ),
-        
               ),
               Transform.translate(
                 offset: const Offset(0, 30),
                 child: Form(
                   child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 35),
+                    //Uso de mediaquery para diseño responsivo
+                    margin: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.width * 0.12,
+                    ),
                     child: Column(
                       children: [
                         Container(
-                          margin: const EdgeInsets.only(bottom: 20),
+                          margin: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).size.height * 0.02,
+                          ),
                           child: Text(
                             'login'.tr,
                             style: TextStyle(
@@ -65,21 +65,27 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
+                        // Campos de texto para correo y contraseña
                         Container(
-                          margin: const EdgeInsets.only(bottom: 5),
+                          margin: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).size.height * 0.007,
+                          ),
                           child: AppTextFormField(
                             label: 'email'.tr,
                             hint: 'enter_your_email'.tr,
                             controller: loginController.emailController,
-                        ),
+                          ),
                         ),
                         AppTextFormField(
                           label: 'password'.tr,
                           hint: 'enter_your_password'.tr,
+                          isPassword: true,
                           controller: loginController.passwordController,
                         ),
                         Container(
-                          margin: const EdgeInsets.only(top: 30),
+                          margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.04,
+                          ),
                           child: ActionButton(
                             text: 'login'.tr,
                             onTapFunction: loginController.performLoginAction,
@@ -91,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

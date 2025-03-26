@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppText extends StatefulWidget{
+  // Constructor
   const AppText({super.key, required this.text, required this.fontSize, required this.fontWeight});
 
   final String text;

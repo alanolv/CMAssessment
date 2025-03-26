@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTextFormField extends StatefulWidget {
+  // Constructor
   const AppTextFormField({super.key, this.label, this.hint, this.isPassword = false, required this.controller});
 
   final String? label;

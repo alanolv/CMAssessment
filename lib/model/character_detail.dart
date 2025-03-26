@@ -1,3 +1,4 @@
+//Modelo para detalles de personajes
 class CharacterDetail {
 
   final String name;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_assesment/constant/colors.dart';
 
 class ActionButton extends StatefulWidget {
+  // Constructor
   const ActionButton({super.key, required this.text, required this.onTapFunction, this.leadingIcon, this.isFilled = false, this.hasShadow = false});
 
   final IconData? leadingIcon;

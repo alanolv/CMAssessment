@@ -83,22 +83,22 @@ class _DetailScreenState extends State<DetailScreen> {
                           ),
                         ),
                         Text(
-                          "Status: ${character.status}",
+                          "${'status'.tr}: ${character.status}",
                           textAlign: TextAlign.right,
                           style: const TextStyle(fontSize: 18),
                         ),
                         Text(
-                          "Gender: ${character.gender}",
+                          "${'gender'.tr}: ${character.gender}",
                           textAlign: TextAlign.left,
                           style: const TextStyle(fontSize: 18),
                         ),
                         Text(
-                          "Specie type: ${character.species}",
+                          "${'specie'.tr}: ${character.species}",
                           textAlign: TextAlign.left,
                           style: const TextStyle(fontSize: 18),
                         ),
                         Text(
-                          "Current Location: ${character.locationName}",
+                          "${'current_location'.tr}: ${character.locationName}",
                           textAlign: TextAlign.left,
                           style: const TextStyle(fontSize: 18),
                         ),

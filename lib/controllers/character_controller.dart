@@ -5,24 +5,26 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class CharacterController extends GetxController {
-  var charactersByType = <String, List<Character>>{}.obs;
+  var charactersByName = <String, List<Character>>{}.obs;
 
-  Future<void> fetchCharacters(String type) async {
+  Future<void> fetchCharacters(String name) async {
     try {
       final response = await http.get(
-        Uri.parse("https://rickandmortyapi.com/api/character/?name=$type&status=alive"),
+        // Cambia la URL para obtener los personajes por nombre y estado
+        Uri.parse("https://rickandmortyapi.com/api/character/?name=$name&status=alive"),
       );
 
       if (response.statusCode == 200) {
+        // Convierte la respuesta en un objeto JSON
         final data = json.decode(response.body);
-        charactersByType[type] = (data['results'] as List)
+        charactersByName[name] = (data['results'] as List)
             .map((character) => Character.fromJson(character))
             .toList();
       } else {
-        showErrorSnackbar("Error", "No se pudieron cargar los personajes de $type");
+        showErrorSnackbar("Error", "No se pudieron cargar los personajes de $name");
       }
     } catch (e) {
-      showErrorSnackbar("Error", "No se pudieron cargar los personajes de $type");
+      showErrorSnackbar("Error", "No se pudieron cargar los personajes de $name");
     }
   }
 }

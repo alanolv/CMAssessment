@@ -1,3 +1,4 @@
+//Modelo para personajes
 class Character {
   final  int id;
   final String name;

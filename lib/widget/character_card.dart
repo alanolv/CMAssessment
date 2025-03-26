@@ -29,12 +29,15 @@ class _CharacterCardState extends State<CharacterCard> {
         child: Card(
           elevation: 5,
           child: Column(
+            //alinear al centro
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
                 height: 310,
+                //ancho de la imagen
                 width: double.infinity,
+                //imagen de la red
                 child: Image.network(widget.characterImage, fit: BoxFit.cover),
               ),
               const SizedBox(height: 10),

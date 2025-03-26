@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final characterController = Get.put(CharacterController());
-  // Lista de tipos de personajes
+  // Lista de personajes
   final List<String> characterTypes = [
     'rick',
     'morty',
@@ -83,9 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       height: 400,
                       child: Obx(() {
-                        //Obtener personaje por tipo
+                        //Obtener personaje por nombre
                         final characters =
-                            characterController.charactersByType[type] ?? [];
+                            characterController.charactersByName[type] ?? [];
                         if (characters.isEmpty) {
                           return const Center(
                             child: CircularProgressIndicator(),
@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return Container(
-                                // Tarjeta del personaje
+                                // Espacio entre las tarjetas
                                 margin: EdgeInsets.only(
                                   top: MediaQuery.of(context).size.width * 0.03,
                                 ),
@@ -104,6 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   horizontal:
                                       MediaQuery.of(context).size.width * 0.03,
                                 ),
+                                // Tarjeta del personaje
                                 child: CharacterCard(
                                   onTap: () {
                                     Get.to(

@@ -20,10 +20,12 @@ class MyApp extends StatelessWidget{
       translations: Messages(),
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
+          //Especificar el color de fondo de la barra de aplicaciones
           backgroundColor: Colors.transparent,
           surfaceTintColor: Colors.transparent),
         useMaterial3: true,
         ),
+        //Obtener el idioma del dispositivo y establecer la ruta de inicio
         locale: Get.deviceLocale,
         fallbackLocale: const Locale('es', 'MX'),
         home: const LoginScreen(),
