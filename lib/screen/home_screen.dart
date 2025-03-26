@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assesment/widget/character_card.dart';
 import 'package:get/get.dart';
-//import 'package:flutter_assesment/widget/character_card.dart';
+import 'package:flutter_assesment/screen/detail_screen.dart';
 import 'package:flutter_assesment/controllers/character_controller.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         horizontal: MediaQuery.of(context).size.width * 0.05,
                       ),
                       child: Text(
-                        'alive_${type}s'.tr, 
+                        'alive_${type}s'.tr,
                         style: const TextStyle(fontSize: 22),
                       ),
                     ),
@@ -105,7 +105,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       MediaQuery.of(context).size.width * 0.03,
                                 ),
                                 child: CharacterCard(
-                                  onTap:() {Get.to(DetailScreen(nombre:characters[index].id));},
+                                  onTap: () {
+                                    Get.to(
+                                      DetailScreen( characterId: characters[index].id.toString(),
+                                      ),
+                                    );
+                                  },
                                   characterId: characters[index].id,
                                   characterName: characters[index].name,
                                   characterImage: characters[index].image,
@@ -118,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 );
-              }).toList(),
+              }),
             ],
           ),
         ),
